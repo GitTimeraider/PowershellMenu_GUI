@@ -21,13 +21,13 @@ ModuleVersion = '1.0.1'
 GUID = '103460b8-4f8b-471c-8f70-41e493070656'
 
 # Author of this module
-Author = "Dan O'Sullivan"
+Author = "?"
 
 # Company or vendor of this module
 # CompanyName = ''
 
 # Copyright statement for this module
-Copyright = "(c) Dan O'Sullivan. Released under the MIT License."
+Copyright = "???"
 
 # Description of the functionality provided by this module
 Description = 'Use a CSV file to make a graphical menu of PowerShell scripts. Easy to customise and fast to launch.
@@ -105,10 +105,10 @@ PrivateData = @{
         Tags = @('PSEdition_Desktop','PSEdition_Core','Windows')
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/weebsnore/PowerShell-Script-Menu-Gui/blob/master/LICENSE'
+        LicenseUri = '?????'
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/weebsnore/PowerShell-Script-Menu-Gui'
+        ProjectUri = 'https://github.com/GitTimeraider/PowershellMenu_GUI'
 
         # A URL to an icon representing this module.
         # IconUri = ''
