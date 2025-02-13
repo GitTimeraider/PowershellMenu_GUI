@@ -1,4 +1,4 @@
-# PSMenuGui
+# ${{\color{Purple}\Huge{\textsf{  PSMenuGui \}}}}\$
 
 This module uses a CSV file to make a graphical menu of PowerShell scripts.
 
