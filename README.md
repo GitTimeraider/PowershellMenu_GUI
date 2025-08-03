@@ -1,63 +1,118 @@
-# ${{\color{Purple}\Huge{\textsf{  PSMenuGui \}}}}\$
+# PowerShell Menu GUI
 
-This module uses a CSV file to make a graphical menu of PowerShell scripts.
+## 🎩 Overview
 
-It's easy to customise and fast to launch.
+Welcome to a whimsical world where PowerShell scripts don their finest GUI attire! This repository provides a graphical menu system for PowerShell.
 
-You can also add Windows programs and files to the menu.
+**A Mad Observation:** Why click through endless folders when you can have all your scripts dancing before you in a proper menu? Madness? Perhaps. Efficient? Absolutely!
 
-## Basic usage
+## 🍄 Features
 
-    Show-ScriptMenuGui -csvPath '.\example_data.csv' -Verbose
+- **Visual Script Selection**
+- **Customizable Menus**
+- **User-Friendly Interface**
+- **PowerShell Integration**
 
-## Show-ScriptMenuGui options
+## 🐰 Requirements
 
-Parameter | What is it?
-:--- |:---
-`-csvPath` | Path to CSV file that defines the menu. See [CSV reference](#csv-reference), below.
-`-windowTitle` *(optional)* | Custom title for the menu window
-`-buttonForegroundColor` *(optional)* | Custom button foreground (text) color. Hex codes (e.g. `#C00077`) and color names (e.g. `Azure`) are valid. See [.NET Color Class](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.colors).
-`-buttonBackgroundColor` *(optional)* | Custom button background color
-`-iconPath` *(optional)* | Path to .ico file for use in menu
-`-hideConsole` *(optional)* | Hide the PowerShell console that the menu is called from. **Note:** This means you won't be able to see any errors from button clicks. If things aren't working, this should be the first thing you stop using.
-`-noExit` *(optional)* | Start all PowerShell instances with `-NoExit` *("Does not exit after running startup commands.")*. **Note:** You can set `-NoExit` on individual menu items by using the *Arguments* column. See [CSV reference](#csv-reference), below.
+Before tumbling down this particular rabbit hole, ensure you have:
 
-See [`PSScriptMenuGui_all_options.ps1`](PSScriptMenuGui/examples/PSScriptMenuGui_all_options.ps1) for an example using every option.
+- Windows PowerShell 5.1 or later
+- .NET Framework (for GUI components)
+- Administrative privileges (for certain script operations)
+- A touch of madness (optional but recommended)
 
-## CSV reference
+## 🫖 Installation
 
-This table details how to lay out the CSV file for your menu.
+### Step 1: Download the Repository
 
-The top row of your CSV should contain the column headers. Each row after this defines a menu item.
+Clone or download this repository to your preferred location:
 
-Column header | What is it?
-:--- |:---
-Section *(optional)* | Text for heading
-Method | What happens when you click the button? Valid options: `cmd` \| `powershell_file` \| `powershell_inline` \| `pwsh_file` \| `pwsh_inline`
-Command | Path to target script/executable (`cmd` or `_file` methods) ***or*** PowerShell commands (`_inline` methods)
-Arguments *(optional)* | Arguments to pass to target executable (`cmd` method) ***or*** to the PowerShell exe (other methods)
-Name | Text for button
-Description *(optional)* | Text for description 
+`git clone https://github.com/GitTimeraider/PowershellMenu_GUI.git`
 
-### Some examples
+### Step 2: Unblock the Scripts
 
-Section | Method | Command | Arguments | Name | Description
-:---|:---|:---|:---|:---|:---
-Old school | `cmd` | `taskmgr.exe` | | Example 2: cmd | External executable
-Old school | `cmd` | `notepad.exe` | `example_text_file` | Example 3: cmd | External executable with arguments
-Less old | `powershell_file` | `example_target.ps1` | | Example 4: powershell_file | .ps1 file called with powershell.exe
-Less old | `powershell_inline` | `$PSVersionTable` | `-NoExit -WindowStyle Maximized` | Example 6: powershell_inline | Additional powershell.exe arguments
-The future | `pwsh_file` | `example_target.ps1` | | Example 7: pwsh_file | .ps1 file called with pwsh.exe
-The future | `pwsh_inline` | `& .\example_target.ps1 -Message "passed in via param"` | |Example 9: pwsh_inline | .ps1 file called with parameter
+*"Why, sometimes I've believed as many as six impossible things before breakfast... but Windows security policies aren't one of them!"*
 
-See [`example_data.csv`](PSScriptMenuGui/examples/example_data.csv) for further examples in CSV format.
+`Get-ChildItem -Path ".\PowershellMenu_GUI" -Recurse | Unblock-File`
 
-### Tips
+### Step 3: Run the Main Script
 
-- Relative paths, network paths and paths in your environment should work.
-- `<LineBreak />` is supported in text fields.
-- You can add multiple `_inline` commands by separating with a semi-colon (`;`)
-- Excel makes a good editor!
-- But watch out for Excel turning e.g. `-NoExit` into a formula. Best workaround is to prefix with a space.
+Execute the main menu script:
 
-![](excel.png)
+`.\PowershellMenu_GUI.ps1`
+
+## ⚙️ Configuration
+
+*"Take your time," said the Hatter. "Configure it properly, or you'll be late for everything!"*
+
+### Menu Structure
+
+The menu system can be customized by editing the configuration sections:
+
+| Component | Purpose |
+|-----------|---------|
+| Menu Items | Define which scripts appear in the GUI |
+| Categories | Group related scripts together |
+| Descriptions | Add helpful text for each menu option |
+| Icons | Customize visual elements (if supported) |
+
+### Adding Your Own Scripts
+
+1. Place your PowerShell scripts in the designated folder
+2. Update the menu configuration to include your scripts
+3. Restart the GUI to see your changes
+
+## 🎪 Usage
+
+### Basic Navigation
+
+- **Click** menu items to execute scripts
+- **Hover** for descriptions and tooltips
+- **Right-click** for additional options (if implemented)
+
+### Advanced Features
+
+- Script parameters can be passed through the GUI
+- Output is displayed in a dedicated console window
+- Error handling prevents the entire menu from crashing
+
+## 🔧 Customization
+
+*"I've had an idea! Not a good idea, mind you, but an idea nonetheless!"*
+
+### Theming
+
+Modify the appearance by adjusting:
+- Color schemes
+- Font styles
+- Window dimensions
+- Button layouts
+
+### Extending Functionality
+
+The framework supports:
+- Adding new menu categories
+- Implementing sub-menus
+- Creating custom dialog boxes
+- Integrating with other PowerShell modules
+
+## ⚠️ Mad Warnings
+
+- Some antivirus software may flag PowerShell GUIs as suspicious (they're just jealous of the pretty buttons)
+- Running scripts with elevated privileges requires proper caution
+- The GUI may behave unexpectedly if scripts take too long to execute
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**GUI Won't Launch**
+- Check PowerShell execution policy: `Get-ExecutionPolicy`
+- Ensure .NET Framework is installed
+- Verify script isn't blocked by Windows
+
+**Scripts Don't Execute**
+- Confirm script paths are correct
+- Check for required permissions
+- Review error messages in the output window
